@@ -1,0 +1,7 @@
+D:\ShopManager\ShopManagerTests\bin\Debug\ShopManagerTests.dll
+D:\ShopManager\ShopManagerTests\bin\Debug\ShopManagerTests.pdb
+D:\ShopManager\ShopManagerTests\obj\Debug\ShopManagerTests.csprojResolveAssemblyReference.cache
+D:\ShopManager\ShopManagerTests\obj\Debug\ShopManagerTests.dll
+D:\ShopManager\ShopManagerTests\obj\Debug\ShopManagerTests.pdb
+D:\ShopManager\ShopManagerTests\bin\Debug\ShopManager.dll
+D:\ShopManager\ShopManagerTests\bin\Debug\ShopManager.pdb
