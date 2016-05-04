@@ -10,7 +10,7 @@ namespace ShopManager
         {
             _Products = new List<Product>
             {
-                new Product {Cost = 1, Revenue = 11},
+                new Product {Id = 1, Cost = 1, Revenue = 11},
                 new Product {Cost = 2, Revenue = 12},
                 new Product {Cost = 3, Revenue = 13},
                 new Product {Cost = 4, Revenue = 14},
