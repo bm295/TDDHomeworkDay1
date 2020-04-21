@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Shop;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
-namespace ShopManager.Tests
+namespace UnitTest
 {
-    [TestClass]
     public class SumCalculatorTests
     {
-        [TestMethod]
+        [Fact]
         public void SumTest_If_Group_3_Products_And_Option_Cost_Should_Sum_Of_Cost_Of_Each_Group()
         {
             var sumCalculator = new SumCalculator();
@@ -17,10 +17,10 @@ namespace ShopManager.Tests
             
             var actual = sumCalculator.Sum(numberOfProducts, optionToSum).ToList();
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void SumTest_If_Group_4_Products_And_Option_Revenue_Should_Sum_Of_Revenue_Of_Each_Group()
         {
             var sumCalculator = new SumCalculator();
@@ -30,7 +30,7 @@ namespace ShopManager.Tests
 
             var actual = sumCalculator.Sum(numberOfProducts, optionToSum).ToList();
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }

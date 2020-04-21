@@ -1,5 +1,0 @@
-D:\ShopManager\ShopManager\bin\Debug\ShopManager.dll
-D:\ShopManager\ShopManager\bin\Debug\ShopManager.pdb
-D:\ShopManager\ShopManager\obj\Debug\ShopManager.dll
-D:\ShopManager\ShopManager\obj\Debug\ShopManager.pdb
-D:\ShopManager\ShopManager\obj\Debug\ShopManager.csprojResolveAssemblyReference.cache

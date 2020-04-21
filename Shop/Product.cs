@@ -1,4 +1,4 @@
-﻿namespace ShopManager
+﻿namespace Shop
 {
     public class Product
     {
