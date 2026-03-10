@@ -1,14 +1,36 @@
-# TDDHomeworkDay1
-[![Build Status](https://travis-ci.org/bm295/TDDHomeworkDay1.svg?branch=master)](https://travis-ci.org/github/bm295/TDDHomeworkDay1)
+# El Gaucho Hanoi - FnB Management (Hexagonal Architecture)
 
-## .NET 10 Setup
-This repository now targets **.NET 10** (`net10.0`).
+This repository now includes a **Hexagonal Architecture (Ports and Adapters)** implementation for a restaurant management system sized for **80-120 seats**.
 
-## Run the async snippet
-The snippet lives in `Shop/Program.cs` and can be run from the repository root:
+## Architecture
 
-```bash
-dotnet run --project Shop/Shop.csproj
+```text
+/src
+  /Domain          # Entities, value objects, domain services, business rules
+  /Application     # Use cases, DTOs, ports (interfaces)
+  /Adapters        # In-memory persistence and external adapter implementations
+  /Infrastructure  # Dependency injection and composition support
+  /Api             # Executable entrypoint that exercises operational flows
 ```
 
-Expected behavior: it starts 3 async tasks, waits for all of them to complete, and prints values to the console.
+## Supported restaurant flows
+
+1. Create order for a table
+2. Add / remove items
+3. Send order to kitchen
+4. Process payment
+5. Deduct inventory
+6. Close order
+7. Generate basic daily sales report
+
+## Runtime target
+
+All new projects target **.NET 10** (`net10.0`).
+
+## Run sample flow
+
+```bash
+dotnet run --project src/Api/Api.csproj
+```
+
+The sample runs a full order lifecycle and prints a basic report.
