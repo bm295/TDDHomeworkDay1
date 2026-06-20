@@ -7,7 +7,7 @@ Use this checklist to turn El FnB from a technical MVP into sellable restaurant 
 - [x] Create project folder `src/Adapters/Outbound/Persistence/EntityFramework` for production persistence adapters.
 - [x] Add Entity Framework Core package references to `src/Adapters/Adapters.csproj` for the chosen database provider.
 - [x] Create `RestaurantDbContext` in `src/Adapters/Outbound/Persistence/EntityFramework/RestaurantDbContext.cs`.
-- [ ] Add `DbSet<OrderRecord> Orders`, `DbSet<OrderItemRecord> OrderItems`, `DbSet<TableRecord> Tables`, `DbSet<InventoryItemRecord> InventoryItems`, and `DbSet<PaymentRecord> Payments` to `RestaurantDbContext`.
+- [x] Add `DbSet<OrderRecord> Orders`, `DbSet<OrderItemRecord> OrderItems`, `DbSet<TableRecord> Tables`, `DbSet<InventoryItemRecord> InventoryItems`, and `DbSet<PaymentRecord> Payments` to `RestaurantDbContext`.
 - [ ] Create persistence record class `OrderRecord` with columns for `Id`, `TableNumber`, `Status`, `CreatedAtUtc`, `ClosedAtUtc`, and `RowVersion`.
 - [ ] Create persistence record class `OrderItemRecord` with columns for `Id`, `OrderId`, `Sku`, `Name`, `Quantity`, `UnitPrice`, and `LineTotal`.
 - [ ] Create persistence record class `TableRecord` with columns for `Number`, `Seats`, `DiningArea`, and `IsActive`.
