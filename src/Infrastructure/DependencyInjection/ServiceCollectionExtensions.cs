@@ -2,6 +2,7 @@ using Adapters.Integrations;
 using Adapters.Persistence;
 using Application.Ports;
 using Application.UseCases;
+using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.DependencyInjection;
@@ -16,6 +17,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IPaymentGateway, FakePaymentGateway>();
         services.AddSingleton<IKitchenNotifier, ConsoleKitchenNotifier>();
         services.AddSingleton<IReportingReadModel, InMemoryReportingReadModel>();
+        services.AddSingleton<IMenuPricingPolicy, DefaultMenuPricingPolicy>();
 
         services.AddTransient<CreateOrderForTableUseCase>();
         services.AddTransient<AddOrderItemUseCase>();

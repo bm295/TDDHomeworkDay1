@@ -1,5 +1,6 @@
 using Application.Models;
 using Application.Ports;
+using Domain.Services;
 
 namespace Application.UseCases;
 
@@ -9,17 +10,20 @@ public sealed class GetOperationsDashboardUseCase
     private readonly ITableRepository _tables;
     private readonly IInventoryRepository _inventory;
     private readonly IReportingReadModel _reporting;
+    private readonly IMenuPricingPolicy _pricingPolicy;
 
     public GetOperationsDashboardUseCase(
         IOrderRepository orders,
         ITableRepository tables,
         IInventoryRepository inventory,
-        IReportingReadModel reporting)
+        IReportingReadModel reporting,
+        IMenuPricingPolicy pricingPolicy)
     {
         _orders = orders;
         _tables = tables;
         _inventory = inventory;
         _reporting = reporting;
+        _pricingPolicy = pricingPolicy;
     }
 
     public async Task<OperationsDashboardDto> ExecuteAsync(DateOnly day, CancellationToken cancellationToken)
@@ -68,19 +72,10 @@ public sealed class GetOperationsDashboardUseCase
 
         var menuItems = inventoryItems
             .OrderBy(x => x.Name)
-            .Select(item => new MenuItemDto(item.Sku, item.Name, item.QuantityOnHand, GetSuggestedPrice(item.Sku)))
+            .Select(item => new MenuItemDto(item.Sku, item.Name, item.QuantityOnHand, _pricingPolicy.GetSuggestedPrice(item.Sku)))
             .ToList()
             .AsReadOnly();
 
         return new OperationsDashboardDto(day, salesReport, tableDtos, activeOrderDtos, menuItems);
     }
-
-    private static decimal GetSuggestedPrice(string sku) =>
-        sku.ToUpperInvariant() switch
-        {
-            "RIBEYE" => 950000m,
-            "WINE" => 1200000m,
-            "WATER" => 45000m,
-            _ => 0m
-        };
 }
